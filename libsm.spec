@@ -79,7 +79,8 @@ Static development files for %{name}
 
 %build
 %configure2_5x	--x-includes=%{_includedir}\
-		--x-libraries=%{_libdir}
+		--x-libraries=%{_libdir}\
+		--without-libuuid
 
 %make
 
