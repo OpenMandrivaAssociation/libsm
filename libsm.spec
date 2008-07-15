@@ -1,8 +1,8 @@
 %define libsm %mklibname sm 6
 Name: libsm
 Summary:  X Session Management Library
-Version: 1.0.3
-Release: %mkrel 4
+Version: 1.1.0
+Release: %mkrel 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
