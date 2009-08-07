@@ -1,7 +1,7 @@
 %define libsm %mklibname sm 6
 Name: libsm
 Summary:  X Session Management Library
-Version: 1.1.0
+Version: 1.1.1
 Release: %mkrel 1
 Group: Development/X11
 License: MIT
@@ -101,6 +101,6 @@ rm -rf %{buildroot}
 %files -n %{libsm}
 %defattr(-,root,root)
 %{_libdir}/libSM.so.6
-%{_libdir}/libSM.so.6.0.0
+%{_libdir}/libSM.so.6.0.1
 
 
