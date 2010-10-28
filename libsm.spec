@@ -87,6 +87,7 @@ Static development files for %{name}
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+rm -rf %{buildroot}%_datadir/doc/libSM
 
 %clean
 rm -rf %{buildroot}
@@ -100,6 +101,7 @@ rm -rf %{buildroot}
 
 %files -n %{libsm}
 %defattr(-,root,root)
+%doc doc/*.xml
 %{_libdir}/libSM.so.6
 %{_libdir}/libSM.so.6.0.1
 
