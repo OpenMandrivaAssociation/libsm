@@ -1,8 +1,11 @@
-%define libsm %mklibname sm 6
+%define libname 		%mklibname sm 6
+%define develname 	%mklibname sm -d
+%define staticname 	%mklibname sm -s -d
+
 Name: libsm
 Summary:  X Session Management Library
 Version: 1.2.0
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -19,35 +22,37 @@ This is the X Session Management Library.
 
 #-----------------------------------------------------------
 
-%package -n %{libsm}
+%package -n %{libname}
 Summary:  X Session Management Library
 Group: Development/X11
 Conflicts: libxorg-x11 < 7.0
 Provides: %{name} = %{version}
 
-%description -n %{libsm}
+%description -n %{libname}
 This is the X Session Management Library.
 
 #-----------------------------------------------------------
 
-%package -n %{libsm}-devel
+%package -n %{develname}
 Summary: Development files for %{name}
 Group: Development/X11
-Requires: %{libsm} = %{version}
+Requires: %{libname} = %{version}-%{release}
 Requires: libice-devel >= 1.0.0
 Requires: x11-proto-devel >= 1.0.0
 Provides: libsm-devel = %{version}-%{release}
+Provides: libsm6-devel = %{version}-%{release}
+Obsoletes: %{mklibname sm 6}-devel
 Conflicts: libxorg-x11-devel < 7.0
 
-%description -n %{libsm}-devel
+%description -n %{develname}
 Development files for %{name}
 
-%pre -n %{libsm}-devel
+%pre -n %{develname}
 if [ -h %{_includedir}/X11 ]; then
 	rm -f %{_includedir}/X11
 fi
 
-%files -n %{libsm}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libSM.so
 %{_libdir}/libSM.la
@@ -58,17 +63,19 @@ fi
 
 #-----------------------------------------------------------
 
-%package -n %{libsm}-static-devel
+%package -n %{staticname}
 Summary: Static development files for %{name}
 Group: Development/X11
-Requires: %{libsm}-devel = %{version}
+Requires: %{develname} = %{version}-%{release}
 Provides: libsm-static-devel = %{version}-%{release}
+Provides: libsm6-static-devel = %{version}-%{release}
+Obsoletes: %{mklibname sm 6}-static-devel
 Conflicts: libxorg-x11-static-devel < 7.0
 
-%description -n %{libsm}-static-devel
+%description -n %{staticname}
 Static development files for %{name}
 
-%files -n %{libsm}-static-devel
+%files -n %{staticname}
 %defattr(-,root,root)
 %{_libdir}/libSM.a
 
@@ -99,10 +106,8 @@ rm -rf %{buildroot}
 %postun -p /sbin/ldconfig
 %endif
 
-%files -n %{libsm}
+%files -n %{libname}
 %defattr(-,root,root)
 %doc doc/*.xml
 %{_libdir}/libSM.so.6
 %{_libdir}/libSM.so.6.0.1
-
-
