@@ -4,8 +4,8 @@
 
 Name: libsm
 Summary:  X Session Management Library
-Version: 1.2.0
-Release: 4
+Version: 1.2.1
+Release: 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
