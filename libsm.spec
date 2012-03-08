@@ -5,7 +5,7 @@
 Name: libsm
 Summary:  X Session Management Library
 Version: 1.2.1
-Release: 1
+Release: 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -56,11 +56,6 @@ Development files for %{name}
 rm -rf %{buildroot}
 %makeinstall_std
 rm -rf %{buildroot}%_datadir/doc/libSM
-
-%pre -n %{develname}
-if [ -h %{_includedir}/X11 ]; then
-	rm -f %{_includedir}/X11
-fi
 
 %files -n %{libname}
 %{_libdir}/libSM.so.%{major}*
