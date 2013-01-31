@@ -32,7 +32,6 @@ This is the X Session Management Library.
 Summary:	Development files for %{name}
 Group:		Development/X11
 Requires:	%{libname} = %{version}-%{release}
-Provides:	libsm-devel = %{version}-%{release}
 Obsoletes:	%{_lib}sm6-devel < 1.2.1
 Obsoletes:	%{_lib}sm-static-devel < 1.2.1
 Conflicts:	libxorg-x11-devel < 7.0
@@ -69,6 +68,7 @@ rm -rf %{buildroot}%{_datadir}/doc/libSM
 
 %changelog
 * Thu Jan 31 2013 Per Øyvind Karlsen <peroyvind@mandriva.org 1.2.1-4
+- drop useless provides
 - cleanups after ABF merge
 
 * Tue Mar 06 2012 Bernhard Rosenkraenzer <bero@bero.eu> 1.2.1-1
