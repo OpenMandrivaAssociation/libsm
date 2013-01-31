@@ -1,11 +1,11 @@
-%define major 6
-%define libname %mklibname sm %{major}
-%define develname %mklibname sm -d
+%define	major	6
+%define	libname	%mklibname sm %{major}
+%define	devname	%mklibname sm -d
 
 Name:		libsm
 Summary:	X Session Management Library
 Version:	1.2.1
-Release:	1
+Release:	4
 Group:		Development/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -19,7 +19,7 @@ BuildRequires:	x11-xtrans-devel >= 1.0.0
 %description
 This is the X Session Management Library.
 
-%package -n %{libname}
+%package -n	%{libname}
 Summary:	X Session Management Library
 Group:		Development/X11
 Conflicts:	libxorg-x11 < 7.0
@@ -28,7 +28,7 @@ Provides:	%{name} = %{version}
 %description -n %{libname}
 This is the X Session Management Library.
 
-%package -n %{develname}
+%package -n	%{devname}
 Summary:	Development files for %{name}
 Group:		Development/X11
 Requires:	%{libname} = %{version}-%{release}
@@ -37,7 +37,7 @@ Obsoletes:	%{_lib}sm6-devel < 1.2.1
 Obsoletes:	%{_lib}sm-static-devel < 1.2.1
 Conflicts:	libxorg-x11-devel < 7.0
 
-%description -n %{develname}
+%description -n	%{devname}
 Development files for %{name}
 
 %prep
@@ -53,19 +53,13 @@ Development files for %{name}
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 rm -rf %{buildroot}%{_datadir}/doc/libSM
-
-%pre -n %{develname}
-if [ -h %{_includedir}/X11 ]; then
-	rm -f %{_includedir}/X11
-fi
 
 %files -n %{libname}
 %{_libdir}/libSM.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %doc doc/*.xml
 %{_libdir}/libSM.so
 %{_libdir}/pkgconfig/sm.pc
@@ -73,8 +67,10 @@ fi
 %{_includedir}/X11/SM/SMlib.h
 %{_includedir}/X11/SM/SMproto.h
 
-
 %changelog
+* Thu Jan 31 2013 Per Øyvind Karlsen <peroyvind@mandriva.org 1.2.1-4
+- cleanups after ABF merge
+
 * Tue Mar 06 2012 Bernhard Rosenkraenzer <bero@bero.eu> 1.2.1-1
 + Revision: 782307
 - 1.2.1
