@@ -10,6 +10,7 @@ Group:		Development/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libSM-%{version}.tar.bz2
+Patch0:		libsm-aarch64.patch
 
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(uuid)
@@ -42,6 +43,7 @@ Development files for %{name}
 
 %prep
 %setup -qn libSM-%{version}
+%patch0 -p1
 
 %build
 %configure2_5x \
