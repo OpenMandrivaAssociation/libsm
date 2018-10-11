@@ -4,8 +4,8 @@
 
 Summary:	X Session Management Library
 Name:		libsm
-Version:	1.2.2
-Release:	15
+Version:	1.2.3
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -43,7 +43,7 @@ Development files for %{name}
 %setup -qn libSM-%{version}
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--x-includes=%{_includedir} \
 	--x-libraries=%{_libdir}
