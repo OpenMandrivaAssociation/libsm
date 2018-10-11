@@ -1,11 +1,11 @@
-%define	major	6
-%define	libname	%mklibname sm %{major}
-%define	devname	%mklibname sm -d
+%define major 6
+%define libname %mklibname sm %{major}
+%define devname %mklibname sm -d
 
 Summary:	X Session Management Library
 Name:		libsm
-Version:	1.2.2
-Release:	16
+Version:	1.2.3
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -40,18 +40,18 @@ Obsoletes:	%{_lib}sm-static-devel < 1.2.1
 Development files for %{name}
 
 %prep
-%setup -qn libSM-%{version}
+%autosetup -n libSM-%{version} -p1
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--x-includes=%{_includedir} \
 	--x-libraries=%{_libdir}
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 rm -rf %{buildroot}%{_datadir}/doc/libSM
 
 %files -n %{libname}
@@ -64,4 +64,3 @@ rm -rf %{buildroot}%{_datadir}/doc/libSM
 %{_includedir}/X11/SM/SM.h
 %{_includedir}/X11/SM/SMlib.h
 %{_includedir}/X11/SM/SMproto.h
-
