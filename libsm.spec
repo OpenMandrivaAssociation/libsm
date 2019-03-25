@@ -2,10 +2,12 @@
 %define libname %mklibname sm %{major}
 %define devname %mklibname sm -d
 
+%global optflags %{optflags} -O3
+
 Summary:	X Session Management Library
 Name:		libsm
 Version:	1.2.3
-Release:	2
+Release:	3
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
