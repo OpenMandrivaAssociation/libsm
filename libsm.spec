@@ -17,12 +17,12 @@
 
 Summary:	X Session Management Library
 Name:		libsm
-Version:	1.2.3
-Release:	4
+Version:	1.2.4
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libSM-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/lib/libSM-%{version}.tar.xz
 
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(uuid)
@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xtrans)
 %if %{with compat32}
+BuildRequires:	libc6
 BuildRequires:	devel(libICE)
 BuildRequires:	devel(libuuid)
 %endif
@@ -53,7 +54,7 @@ Obsoletes:	%{_lib}sm6-devel < 1.2.1
 Obsoletes:	%{_lib}sm-static-devel < 1.2.1
 
 %description -n	%{devname}
-Development files for %{name}
+Development files for %{name}.
 
 %if %{with compat32}
 %package -n	%{lib32name}
@@ -70,12 +71,12 @@ Requires:	%{lib32name} = %{version}-%{release}
 Requires:	%{devname} = %{EVRD}
 
 %description -n	%{dev32name}
-Development files for %{name}
+Development files for %{name}.
 %endif
 
 %prep
 %autosetup -n libSM-%{version} -p1
-export CONFIGURE_TOP="`pwd`"
+export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
 cd build32
