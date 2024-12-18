@@ -17,12 +17,12 @@
 
 Summary:	X Session Management Library
 Name:		libsm
-Version:	1.2.4
-Release:	2
+Version:	1.2.5
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		https://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libSM-%{version}.tar.xz
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libSM-%{version}.tar.xz
 
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(uuid)
